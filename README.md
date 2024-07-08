@@ -1,24 +1,88 @@
-# 💫 About Me:
-<br><br>🌱 I’m currently learning how to code with c/java/data base/web development<br>⚡ Fun fact The first programming language in the world was called FORTRAN (an acronym for Formula Translation), and it was created in 1956. The team who created it, led by Mr. John Backus, started working on it in 1954
+d. Display calendar for the month and year selected from combo box
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Calendar</title>
+    <script src="displayCalendar.js"></script>
+</head>
+<body>
+    <label for="month">Month:</label>
+    <select id="month" onchange="displayCalendar()">
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+    </select>
+    
+    <label for="year">Year:</label>
+    <input type="number" id="year" value="2023" onchange="displayCalendar()">
+    
+    <div id="calendar"></div>
+</body>
+</html>
+displayCalendar.js
+function displayCalendar() {
+    var month = document.getElementById("month").value;
+    var year = document.getElementById("year").value;
+    var firstDay = new Date(year, month, 1).getDay();
+    var daysInMonth = new Date(year, parseInt(month) + 1, 0).getDate();
+    var calendar = "<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>";
 
+    for (var i = 0; i < firstDay; i++) {
+        calendar += "<td></td>";
+    }
+    for (var day = 1; day <= daysInMonth; day++) {
+        calendar += "<td>" + day + "</td>";
+        if ((firstDay + day) % 7 == 0) {
+            calendar += "</tr><tr>";
+        }
+    }
+    calendar += "</tr></table>";
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/m_aneesh_) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/aneesh-m-59867b240?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) 
+    document.getElementById("calendar").innerHTML = calendar;
+}
 
-# 💻 Tech Stack:
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-%2300000f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Adobe Premiere Pro](https://img.shields.io/badge/Adobe%20Premiere%20Pro-9999FF.svg?style=for-the-badge&logo=Adobe%20Premiere%20Pro&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Adobe Lightroom Classic](https://img.shields.io/badge/Adobe%20Lightroom%20Classic-31A8FF.svg?style=for-the-badge&logo=Adobe%20Lightroom%20Classic&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Code-aneesh&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=Code-aneesh&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Code-aneesh&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+e. On mouse over event
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Over Event</title>
+    <script src="mouseOverEvent.js"></script>
+    <style>
+        .hover-box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hover-box" onmouseover="mouseOver()" onmouseout="mouseOut()">Hover over me!</div>
+    <div id="message"></div>
+</body>
+</html>
+mouseOverEvent.js
+function mouseOver() {
+    document.getElementById("message").innerText = "Mouse is over the box!";
+}
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Code-aneesh&limit=5&theme=dark&combine_all_yearly_contributions=true)
-
-### 😂 Random Dev Meme
-<img src='https://randommeme-five.vercel.app/' style="height: 400px;"/>
-
----
-[![](https://visitcount.itsvg.in/api?id=Code-aneesh&icon=0&color=0)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+function mouseOut() {
+    document.getElementById("message").innerText = "";
+}
